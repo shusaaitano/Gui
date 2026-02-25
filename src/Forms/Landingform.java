@@ -31,19 +31,30 @@ public class Landingform extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cs = new javax.swing.JLabel();
         tx = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        hm = new javax.swing.JLabel();
+        rm = new javax.swing.JLabel();
+        ab = new javax.swing.JLabel();
+        cn = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        bn = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         Continue = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+
+        jLabel6.setText("jLabel6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cs.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        cs.setFont(new java.awt.Font("Leelawadee", 1, 48)); // NOI18N
         cs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cs.setText("CozyStay");
         cs.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -54,7 +65,7 @@ public class Landingform extends javax.swing.JFrame {
                 csMouseExited(evt);
             }
         });
-        jPanel2.add(cs, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, -1, -1));
+        jPanel2.add(cs, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
         tx.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         tx.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,15 +78,110 @@ public class Landingform extends javax.swing.JFrame {
                 txMouseExited(evt);
             }
         });
-        jPanel2.add(tx, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        jPanel2.add(tx, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Javanese Text", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Ⓒ @ CozyStay 2026");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, 20));
+        jLabel4.setText("@ CozyStay 2026");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 120, 20));
 
-        Continue.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        Continue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        hm.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        hm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hm.setText("Home");
+        hm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hmMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hmMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                hmMouseExited(evt);
+            }
+        });
+        jPanel1.add(hm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 60, 40));
+
+        rm.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        rm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rm.setText("Rooms");
+        rm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rmMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rmMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rmMouseExited(evt);
+            }
+        });
+        jPanel1.add(rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 80, 40));
+
+        ab.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ab.setText("About Us");
+        ab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                abMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                abMouseExited(evt);
+            }
+        });
+        jPanel1.add(ab, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 90, 40));
+
+        cn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        cn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cn.setText("Contact");
+        cn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cnMouseExited(evt);
+            }
+        });
+        jPanel1.add(cn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 80, 40));
+
+        jPanel4.setBackground(new java.awt.Color(255, 153, 51));
+
+        bn.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        bn.setText("Book Now");
+        bn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bnMouseExited(evt);
+            }
+        });
+        jPanel4.add(bn);
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 100, 20));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 40));
+
+        jPanel3.setBackground(new java.awt.Color(230, 205, 130));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
+
+        Continue.setBackground(new java.awt.Color(255, 153, 0));
+        Continue.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
         Continue.setText("Click here as Guest!");
         Continue.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -88,7 +194,9 @@ public class Landingform extends javax.swing.JFrame {
                 ContinueMouseExited(evt);
             }
         });
-        jPanel2.add(Continue, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
+        jPanel3.add(Continue);
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 190, 30));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Hotel LANDINGFORM.jpg"))); // NOI18N
@@ -99,20 +207,6 @@ public class Landingform extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ContinueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContinueMouseClicked
-        Loginform lg = new Loginform ();
-        lg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_ContinueMouseClicked
-
-    private void ContinueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContinueMouseEntered
-       Continue.setForeground(new Color(245, 185, 105));
-    }//GEN-LAST:event_ContinueMouseEntered
-
-    private void ContinueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContinueMouseExited
-        Continue.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_ContinueMouseExited
 
     private void csMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csMouseEntered
          cs.setForeground(new Color(255, 200, 100));
@@ -129,6 +223,96 @@ public class Landingform extends javax.swing.JFrame {
     private void txMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txMouseExited
        tx.setForeground(new Color(0, 0, 0)); 
     }//GEN-LAST:event_txMouseExited
+
+    private void ContinueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContinueMouseExited
+    Continue.setForeground(new Color(0, 0, 0)); 
+    }//GEN-LAST:event_ContinueMouseExited
+
+    private void ContinueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContinueMouseEntered
+    Continue.setForeground(new Color(255, 153, 0));    
+    }//GEN-LAST:event_ContinueMouseEntered
+
+    private void ContinueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContinueMouseClicked
+   Loginform lg = new Loginform ();
+        lg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ContinueMouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+          Loginform lg = new Loginform ();
+        lg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void hmMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hmMouseEntered
+    hm.setForeground(new Color(255, 153, 51));
+    }//GEN-LAST:event_hmMouseEntered
+
+    private void hmMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hmMouseExited
+    hm.setForeground(new Color(0, 0, 0)); 
+    }//GEN-LAST:event_hmMouseExited
+
+    private void rmMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rmMouseEntered
+    rm.setForeground(new Color(255, 153, 51));
+    }//GEN-LAST:event_rmMouseEntered
+
+    private void rmMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rmMouseExited
+    rm.setForeground(new Color(0, 0, 0)); 
+    }//GEN-LAST:event_rmMouseExited
+
+    private void abMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abMouseEntered
+    ab.setForeground(new Color(255, 153, 51));
+    }//GEN-LAST:event_abMouseEntered
+
+    private void abMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abMouseExited
+    ab.setForeground(new Color(0, 0, 0));   
+    }//GEN-LAST:event_abMouseExited
+
+    private void cnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cnMouseEntered
+    cn.setForeground(new Color(255, 153, 51));
+    }//GEN-LAST:event_cnMouseEntered
+
+    private void cnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cnMouseExited
+    cn.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_cnMouseExited
+
+    private void hmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hmMouseClicked
+     Landingform lf = new Landingform ();
+        lf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_hmMouseClicked
+
+    private void rmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rmMouseClicked
+    Room rm = new Room ();
+        rm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_rmMouseClicked
+
+    private void abMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abMouseClicked
+     AboutUs ab = new AboutUs ();
+        ab.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_abMouseClicked
+
+    private void cnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cnMouseClicked
+      Contact cn = new Contact ();
+        cn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cnMouseClicked
+
+    private void bnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bnMouseEntered
+    bn.setForeground(new Color(255,239,0));
+    }//GEN-LAST:event_bnMouseEntered
+
+    private void bnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bnMouseExited
+    bn.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_bnMouseExited
+
+    private void bnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bnMouseClicked
+    Registerform rf = new Registerform ();
+        rf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -165,10 +349,19 @@ public class Landingform extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Continue;
+    private javax.swing.JLabel ab;
+    private javax.swing.JLabel bn;
+    private javax.swing.JLabel cn;
     private javax.swing.JLabel cs;
+    private javax.swing.JLabel hm;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel rm;
     private javax.swing.JLabel tx;
     // End of variables declaration//GEN-END:variables
 }

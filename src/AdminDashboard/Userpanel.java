@@ -48,9 +48,16 @@ public class Userpanel extends javax.swing.JFrame {
         re = new javax.swing.JLabel();
         se = new javax.swing.JLabel();
         cs = new javax.swing.JLabel();
+        se1 = new javax.swing.JLabel();
         ad = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,6 +131,9 @@ public class Userpanel extends javax.swing.JFrame {
         us.setForeground(new java.awt.Color(255, 255, 255));
         us.setText("Users");
         us.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 usMouseEntered(evt);
             }
@@ -157,7 +167,7 @@ public class Userpanel extends javax.swing.JFrame {
                 seMouseExited(evt);
             }
         });
-        jPanel2.add(se, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 110, 30));
+        jPanel2.add(se, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 110, 30));
 
         cs.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         cs.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,6 +182,22 @@ public class Userpanel extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 50));
+
+        se1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        se1.setForeground(new java.awt.Color(255, 255, 255));
+        se1.setText("Profile");
+        se1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                se1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                se1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                se1MouseExited(evt);
+            }
+        });
+        jPanel2.add(se1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 110, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 420));
 
@@ -197,7 +223,32 @@ public class Userpanel extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(userTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 590, 390));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 530, 330));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Update");
+        jPanel3.add(jLabel3);
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 70, -1));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Add");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel2);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 70, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Delete");
+        jPanel4.add(jLabel4);
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 70, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Untitled design (7).png"))); // NOI18N
@@ -286,6 +337,30 @@ public class Userpanel extends javax.swing.JFrame {
         ad.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_adMouseExited
 
+    private void se1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_se1MouseClicked
+        Profilepanel pl = new Profilepanel();
+        pl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_se1MouseClicked
+
+    private void se1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_se1MouseEntered
+        se1.setForeground(new Color(0,153,153));
+    }//GEN-LAST:event_se1MouseEntered
+
+    private void se1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_se1MouseExited
+        se1.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_se1MouseExited
+
+    private void usMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usMouseClicked
+     Userpanel up = new Userpanel ();
+        up.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_usMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -326,14 +401,21 @@ public class Userpanel extends javax.swing.JFrame {
     private javax.swing.JLabel cs;
     private javax.swing.JLabel dashboardPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lo;
     private javax.swing.JLabel r;
     private javax.swing.JLabel re;
     private javax.swing.JLabel rs;
     private javax.swing.JLabel se;
+    private javax.swing.JLabel se1;
     private javax.swing.JLabel us;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables

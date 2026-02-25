@@ -8,6 +8,7 @@ package Dashboard;
 import AdminDashboard.Profilepanel;
 import java.awt.Color;
 import AdminDashboard.Userpanel;
+import Forms.Landingform;
 
 
 /**
@@ -73,6 +74,9 @@ public class Admindashboard extends javax.swing.JFrame {
         lo.setForeground(new java.awt.Color(255, 255, 255));
         lo.setText("Log out");
         lo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loMouseEntered(evt);
             }
@@ -173,7 +177,7 @@ public class Admindashboard extends javax.swing.JFrame {
                 seMouseExited(evt);
             }
         });
-        jPanel2.add(se, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 110, 30));
+        jPanel2.add(se, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 110, 30));
 
         se1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         se1.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,7 +190,7 @@ public class Admindashboard extends javax.swing.JFrame {
                 se1MouseExited(evt);
             }
         });
-        jPanel2.add(se1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 110, 30));
+        jPanel2.add(se1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 110, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 420));
 
@@ -212,8 +216,9 @@ public class Admindashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashboardPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardPanelMouseClicked
-    dashboardPanel.setVisible(false);
-    dashboardPanel.setVisible(true);
+   Admindashboard lf = new Admindashboard ();
+        lf.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_dashboardPanelMouseClicked
 
     private void dashboardPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardPanelMouseEntered
@@ -295,11 +300,11 @@ public class Admindashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_usMouseClicked
 
     private void se1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_se1MouseEntered
-        // TODO add your handling code here:
+     se1.setForeground(new Color(0,204, 204));
     }//GEN-LAST:event_se1MouseEntered
 
     private void se1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_se1MouseExited
-        // TODO add your handling code here:
+     se1.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_se1MouseExited
 
     private void seMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seMouseClicked
@@ -307,6 +312,12 @@ public class Admindashboard extends javax.swing.JFrame {
             pl.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_seMouseClicked
+
+    private void loMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseClicked
+    Landingform landing = new Landingform();
+    landing.setVisible(true);
+    landing.setLocationRelativeTo(null); 
+    this.dispose();    }//GEN-LAST:event_loMouseClicked
 
     /**
      * @param args the command line arguments

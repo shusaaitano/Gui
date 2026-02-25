@@ -42,13 +42,12 @@ public class Loginform extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        lo = new javax.swing.JPanel();
+        l = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         si = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
@@ -69,22 +68,32 @@ public class Loginform extends javax.swing.JFrame {
         jLabel7.setText("Welcome Back!");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 200, 30));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bagay kayu.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 230, 100));
-
-        jPanel2.setBackground(new java.awt.Color(99, 95, 95));
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lo.setBackground(new java.awt.Color(99, 95, 95));
+        lo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
+                loMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loMouseEntered(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel11.setText("Login");
-        jPanel2.add(jLabel11);
+        l.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        l.setText("Login");
+        l.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lMouseExited(evt);
+            }
+        });
+        lo.add(l);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 90, 40));
+        getContentPane().add(lo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 90, 40));
 
         jLabel8.setText("Please login to your account!");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
@@ -108,10 +117,22 @@ public class Loginform extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(99, 95, 95));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Exit");
-        jPanel1.add(jLabel5);
+        b.setBackground(new java.awt.Color(0, 0, 0));
+        b.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        b.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        b.setText("Back");
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
+            }
+        });
+        jPanel1.add(b);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 60, 40));
 
@@ -166,63 +187,133 @@ public class Loginform extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
-       String Email = email.getText().trim();
-        String pass = passUtil.hashPassword(new String(password.getPassword()));
+    private void loMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseClicked
 
-        if (Email.isEmpty() || pass.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                this,
-                "Type your User and Password.",
-                "Missing Information",
-                JOptionPane.WARNING_MESSAGE
-            );
-            return;
-        }
+    }//GEN-LAST:event_loMouseClicked
 
-       config con = new config();
-       String sql = "SELECT * FROM account WHERE email = ? AND password = ? AND status = ?";
-       
-       String account_Type = con.authenticate(
-       sql,
-       Email,
-       pass,      // ✅ HASHED password
-       "Active"
+    private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
+     Landingform lf = new Landingform();
+      lf.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_bMouseClicked
+
+    private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
+      b.setForeground(new Color(255, 153, 153));
+    }//GEN-LAST:event_bMouseEntered
+
+    private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
+    b.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_bMouseExited
+
+    private void lMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseEntered
+    l.setForeground(new Color(255, 153, 153));
+    }//GEN-LAST:event_lMouseEntered
+
+    private void lMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseExited
+    l.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_lMouseExited
+
+    private void loMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseEntered
+    
+    }//GEN-LAST:event_loMouseEntered
+
+    private void lMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lMouseClicked
+    String Email = email.getText().trim();
+String pass = passUtil.hashPassword(new String(password.getPassword()));
+
+if (Email.isEmpty() || pass.isEmpty()) {
+    JOptionPane.showMessageDialog(
+        this,
+        "Type your User and Password.",
+        "Missing Information",
+        JOptionPane.WARNING_MESSAGE
+    );
+    return;
+}
+
+config con = new config();
+String sql = "SELECT * FROM account WHERE email = ? AND password = ? AND status = ?";
+
+String account_Type = con.authenticate(
+        sql,
+        Email,
+        pass,
+        "Active"   // ✅ Only allows login if status is Active
 );
-       
-       if (account_Type != null) {
+
+if (account_Type != null) {
+
     try {
-        // 1. Get the full user row from the database
+        // Get full user row
         ResultSet rs = con.getData("SELECT * FROM account WHERE email = '" + Email + "'");
-        
+
         if (rs.next()) {
-            // 2. NOW you call setSession with the actual data from the database
+
+            // Set Session
             Session.setSession(
-                
-                rs.getString("email"), 
-                rs.getString("fullname"), 
-                rs.getString("contact"), 
-                rs.getString("type"), 
-                rs.getString("status")
+                    rs.getString("email"),
+                    rs.getString("fullname"),
+                    rs.getString("contact"),
+                    rs.getString("type"),
+                    rs.getString("status")
             );
         }
+
     } catch (SQLException ex) {
         System.out.println("Login Error: " + ex.getMessage());
     }
 
     JOptionPane.showMessageDialog(null, "Log in successful");
-    
-    // 3. Proceed to Dashboards
+
+    // ✅ Redirect to proper dashboard
     if (account_Type.equals("Admin")) {
         new Admindashboard().setVisible(true);
         this.dispose();
-    } else if (account_Type.equals("User")) {
+    } 
+    else if (account_Type.equals("User")) {
         new UserDashboard().setVisible(true);
         this.dispose();
     }
+
+} 
+else {
+
+    // 🔎 Check if account exists but not Active
+    try {
+        ResultSet checkAccount = con.getData(
+                "SELECT * FROM account WHERE email = '" + Email + "' AND password = '" + pass + "'"
+        );
+
+        if (checkAccount.next()) {
+
+            String status = checkAccount.getString("status");
+
+            if (!status.equalsIgnoreCase("Active")) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Wait for admin to activate your status.",
+                        "Account Not Activated",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                return;
+            }
+        }
+
+    } catch (SQLException ex) {
+        System.out.println("Status Check Error: " + ex.getMessage());
+    }
+
+    // ❌ If email/password is wrong
+    JOptionPane.showMessageDialog(
+            this,
+            "Invalid Email or Password.",
+            "Login Failed",
+            JOptionPane.ERROR_MESSAGE
+    );
 }
        
-    }//GEN-LAST:event_jPanel2MouseClicked
+    }//GEN-LAST:event_lMouseClicked
 
     /**
      * @param args the command line arguments
@@ -260,20 +351,19 @@ public class Loginform extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel b;
     private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel l;
+    private javax.swing.JPanel lo;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel si;
     // End of variables declaration//GEN-END:variables

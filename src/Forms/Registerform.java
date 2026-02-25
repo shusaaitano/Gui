@@ -47,9 +47,9 @@ public class Registerform extends javax.swing.JFrame {
         li = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
         reg = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        r = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -116,10 +116,21 @@ public class Registerform extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(99, 95, 95));
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Exit");
-        jPanel2.add(jLabel9);
+        b.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        b.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        b.setText("Back");
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
+            }
+        });
+        jPanel2.add(b);
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 60, 40));
 
@@ -136,9 +147,20 @@ public class Registerform extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel11.setText("Register");
-        reg.add(jLabel11);
+        r.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        r.setText("Register");
+        r.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rMouseExited(evt);
+            }
+        });
+        reg.add(r);
 
         jPanel1.add(reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 100, 40));
 
@@ -186,15 +208,41 @@ public class Registerform extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void regMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regMouseEntered
-     reg.setForeground(new Color(153, 153, 153));
+     reg.setForeground(new Color(255, 153, 153));
     }//GEN-LAST:event_regMouseEntered
 
     private void regMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regMouseExited
-    reg.setForeground(new Color(99, 95, 95));
+    reg.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_regMouseExited
 
     private void regMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regMouseClicked
-   config con = new config();
+
+    }//GEN-LAST:event_regMouseClicked
+
+    private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
+        Loginform bf = new Loginform();
+        bf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bMouseClicked
+
+    private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
+     b.setForeground(new Color(255, 153, 153));
+    }//GEN-LAST:event_bMouseEntered
+
+    private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
+    b.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_bMouseExited
+
+    private void rMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rMouseEntered
+    r.setForeground(new Color(255, 153, 153));
+    }//GEN-LAST:event_rMouseEntered
+
+    private void rMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rMouseExited
+    r.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_rMouseExited
+
+    private void rMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rMouseClicked
+     config con = new config();
 
     String Email = email.getText().trim();
     String fullname = full.getText().trim();
@@ -219,7 +267,7 @@ public class Registerform extends javax.swing.JFrame {
     // 3. Proceed with Registration if no duplicate is found
     password = passUtil.hashPassword(password);
     String type = "User";
-    String status = "Active";
+    String status = "Pending";
     
     String sql = "INSERT INTO account (email, fullname, password, contact, type, status) VALUES (?,?,?,?,?,?)";
     String[] values = { Email, fullname, password, contact, type, status };
@@ -232,7 +280,7 @@ public class Registerform extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Failed to create account!");
       
 }
-    }//GEN-LAST:event_regMouseClicked
+    }//GEN-LAST:event_rMouseClicked
 
     /**
      * @param args the command line arguments
@@ -270,11 +318,11 @@ public class Registerform extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel b;
     private javax.swing.JTextField cont;
     private javax.swing.JTextField email;
     private javax.swing.JTextField full;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -282,11 +330,11 @@ public class Registerform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel li;
     private javax.swing.JTextField pass;
+    private javax.swing.JLabel r;
     private javax.swing.JPanel reg;
     // End of variables declaration//GEN-END:variables
 }

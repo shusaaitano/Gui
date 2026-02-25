@@ -1,5 +1,7 @@
 package UserDashboard;
 
+import AdminDashboard.Profilepanel;
+import Forms.Landingform;
 import java.awt.Color;
 
 /*
@@ -52,6 +54,9 @@ public class UserDashboard extends javax.swing.JFrame {
         lo.setForeground(new java.awt.Color(255, 255, 255));
         lo.setText("Log out");
         lo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loMouseEntered(evt);
             }
@@ -110,7 +115,7 @@ public class UserDashboard extends javax.swing.JFrame {
                 seMouseExited(evt);
             }
         });
-        jPanel2.add(se, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 110, 30));
+        jPanel2.add(se, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 110, 30));
 
         cs.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         cs.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,7 +155,7 @@ public class UserDashboard extends javax.swing.JFrame {
                 se1MouseExited(evt);
             }
         });
-        jPanel2.add(se1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 110, 30));
+        jPanel2.add(se1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 110, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 420));
 
@@ -171,6 +176,7 @@ public class UserDashboard extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 590, 420));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseEntered
@@ -242,10 +248,17 @@ public class UserDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_se1MouseExited
 
     private void seMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seMouseClicked
-      Userprofile up = new Userprofile();
-      up.setVisible(true);
+      Userprofile pp = new Userprofile ();
+      pp.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_seMouseClicked
+
+    private void loMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loMouseClicked
+    Landingform landing = new Landingform();
+    landing.setVisible(true);
+    landing.setLocationRelativeTo(null); 
+    this.dispose();
+    }//GEN-LAST:event_loMouseClicked
 
     /**
      * @param args the command line arguments
