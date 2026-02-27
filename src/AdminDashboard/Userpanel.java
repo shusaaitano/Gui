@@ -8,7 +8,12 @@ package AdminDashboard;
 import Config.config;
 import Dashboard.Admindashboard;
 import Forms.Loginform;
+import Forms.userForm;
 import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -52,12 +57,17 @@ public class Userpanel extends javax.swing.JFrame {
         ad = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
+        update = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        add = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        delete = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        search = new javax.swing.JTextField();
+        search_btn = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        refresh = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -225,11 +235,25 @@ public class Userpanel extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 530, 330));
 
+        update.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateMouseClicked(evt);
+            }
+        });
+        update.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Update");
-        jPanel3.add(jLabel3);
+        update.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 5, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 70, -1));
+        getContentPane().add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 70, 27));
+
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
+        add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -239,16 +263,40 @@ public class Userpanel extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel2);
+        add.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 50, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 70, -1));
+        getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 70, 27));
+
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMouseClicked(evt);
+            }
+        });
+        delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Delete");
-        jPanel4.add(jLabel4);
+        delete.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 70, -1));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 70, -1));
+
+        search.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        search.setOpaque(false);
+        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 130, 27));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setText("Search");
+        search_btn.add(jLabel7);
+
+        getContentPane().add(search_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 60, 27));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Refresh");
+        refresh.add(jLabel6);
+
+        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 60, 27));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Untitled design (7).png"))); // NOI18N
@@ -361,6 +409,63 @@ public class Userpanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+
+       userForm stf = new userForm();
+       stf.setVisible(true);
+       this.dispose();
+       stf.action = "Add";
+       stf.st_label.setText("SAVE");
+    }//GEN-LAST:event_addMouseClicked
+
+    private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
+                int rowIndex = userTable.getSelectedRow();
+          if(rowIndex < 0){
+              JOptionPane.showMessageDialog(null, "Please Select an Item!");
+          } else {
+              TableModel model = userTable.getModel();
+              userForm stf = new userForm(); 
+
+              
+              stf.userid.setText(String.valueOf(model.getValueAt(rowIndex, 0)));
+              stf.email.setText(String.valueOf(model.getValueAt(rowIndex, 1)));
+              stf.full.setText(String.valueOf(model.getValueAt(rowIndex, 2)));
+              stf.pass.setText(String.valueOf(model.getValueAt(rowIndex, 3)));
+              stf.cont.setText(String.valueOf(model.getValueAt(rowIndex, 4)));
+
+              stf.action = "Update";
+              stf.st_label.setText("UPDATE");
+
+              stf.pack();
+              stf.setLocationRelativeTo(null);
+              stf.setVisible(true);
+
+              
+              java.awt.Window win = javax.swing.SwingUtilities.getWindowAncestor(this);
+              if (win != null) {
+                  win.dispose();
+              }
+          }
+    }//GEN-LAST:event_updateMouseClicked
+
+    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
+         int rowIndex = userTable.getSelectedRow();
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null, "Please select data first from the table!");
+        }else{
+            TableModel model = userTable.getModel();
+            Object value = model.getValueAt(rowIndex, 0);
+            String id = value.toString();
+            int a = JOptionPane.showConfirmDialog(null, "Are you sure to delete ID: "+id);
+            if(a == JOptionPane.YES_OPTION){
+                config con = new config();
+                int u_id = Integer.parseInt(id);
+                con.deleteData(u_id, "tbl_users", "u_id");
+                getUserData();
+            }
+        }
+    }//GEN-LAST:event_deleteMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -398,24 +503,29 @@ public class Userpanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ad;
+    private javax.swing.JPanel add;
     private javax.swing.JLabel cs;
     private javax.swing.JLabel dashboardPanel;
+    private javax.swing.JPanel delete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lo;
     private javax.swing.JLabel r;
     private javax.swing.JLabel re;
+    private javax.swing.JPanel refresh;
     private javax.swing.JLabel rs;
     private javax.swing.JLabel se;
     private javax.swing.JLabel se1;
+    private javax.swing.JTextField search;
+    private javax.swing.JPanel search_btn;
+    private javax.swing.JPanel update;
     private javax.swing.JLabel us;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
