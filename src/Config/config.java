@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class config { 
-    public Connection connect;
+    
     public static Connection connectDB() {
         Connection con = null;
         try {
@@ -112,51 +112,53 @@ public class config {
         return false;
     }
 }
-     public int insertData(String sql){
-            int result;
-            try{
-                PreparedStatement pst = connect.prepareStatement(sql);
-                pst.executeUpdate();
-                System.out.println("Inserted Successfully!");
-                pst.close();
-                result =1;
-            }catch(SQLException ex){
-                System.out.println("Connection Error: "+ex);
-                result =0;
-            }
-            return result;
+    public int insertData(String sql){
+    try (Connection conn = connectDB();
+         PreparedStatement pst = conn.prepareStatement(sql)) {
+
+        pst.executeUpdate();
+        System.out.println("Inserted Successfully!");
+        return 1;
+
+    } catch(SQLException ex){
+        System.out.println("Connection Error: " + ex);
+        return 0;
+    }
+}
+    public void updateData(String sql){
+    try (Connection conn = connectDB();
+         PreparedStatement pst = conn.prepareStatement(sql)) {
+
+        int rowsUpdated = pst.executeUpdate();
+
+        if(rowsUpdated > 0){
+            JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
+        } else {
+            System.out.println("Data Update Failed!");
         }
-     
-      public void updateData(String sql){
-            try{
-                PreparedStatement pst = connect.prepareStatement(sql);
-                    int rowsUpdated = pst.executeUpdate();
-                        if(rowsUpdated > 0){
-                            JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
-                        }else{
-                            System.out.println("Data Update Failed!");
-                        }
-                        pst.close();
-            }catch(SQLException ex){
-                System.out.println("Connection Error: "+ex);
-            }
+
+    } catch(SQLException ex){
+        System.out.println("Connection Error: " + ex);
+    }
+}
         
+     public void deleteData(int id, String table, String table_id){
+    try (Connection conn = connectDB();
+         PreparedStatement pst = conn.prepareStatement(
+             "DELETE FROM " + table + " WHERE " + table_id + " = ?")) {
+
+        pst.setInt(1, id);
+        int rowsDeleted = pst.executeUpdate();
+
+        if(rowsDeleted > 0){
+            JOptionPane.showMessageDialog(null, "Deleted Successfully!");
+        } else {
+            System.out.println("Deletion Failed!");
         }
-        
-        //Function to delete data
-        public void deleteData(int id, String table, String table_id){
-            try{
-                PreparedStatement pst = connect.prepareStatement("DELETE FROM "+table+" WHERE "+table_id+" = ?");
-                pst.setInt(1, id);
-                int rowsDeleted = pst.executeUpdate();
-                    if(rowsDeleted > 0){
-                        JOptionPane.showMessageDialog(null, "Deleted Successfully!");
-                    }else{
-                        System.out.println("Deletion Failed!");
-                    }
-                    pst.close();
-            }catch(SQLException ex){
-                JOptionPane.showMessageDialog(null, "Data cannot be deleted\nContact the administrator.");
-            }
-        }
+
+    } catch(SQLException ex){
+        JOptionPane.showMessageDialog(null, 
+            "Data cannot be deleted\nContact the administrator.");
+    }
+}
 }

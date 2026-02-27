@@ -26,14 +26,27 @@ public class Userpanel extends javax.swing.JFrame {
      */
     public Userpanel() {
         initComponents();
+        
         getUserData();
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+    @Override
+    public void keyReleased(java.awt.event.KeyEvent evt) {
+        String keyword = search.getText().trim();
+        config con = new config();
+        String sql = "SELECT * FROM tbl_users WHERE "
+                   + "fullname LIKE '%" + keyword + "%' "
+                   + "OR email LIKE '%" + keyword + "%' "
+                   + "OR contact LIKE '%" + keyword + "%'";
+        con.displayData(sql, userTable);
+    }
+});
     }
     void getUserData() {
         config con = new config();
-        String sql = "Select * FROM account ";
+        String sql = "Select * FROM tbl_users ";
        con.displayData(sql, userTable);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -233,7 +246,7 @@ public class Userpanel extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(userTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 530, 330));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 540, 330));
 
         update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -285,11 +298,23 @@ public class Userpanel extends javax.swing.JFrame {
         search.setOpaque(false);
         getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 130, 27));
 
+        search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                search_btnMouseClicked(evt);
+            }
+        });
+
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Search");
         search_btn.add(jLabel7);
 
         getContentPane().add(search_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 60, 27));
+
+        refresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                refreshMouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -460,11 +485,33 @@ public class Userpanel extends javax.swing.JFrame {
             if(a == JOptionPane.YES_OPTION){
                 config con = new config();
                 int u_id = Integer.parseInt(id);
-                con.deleteData(u_id, "tbl_users", "u_id");
+                con.deleteData(u_id, "tbl_users", "a_id");
                 getUserData();
             }
         }
     }//GEN-LAST:event_deleteMouseClicked
+
+    private void refreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshMouseClicked
+      getUserData(); // Reload all users into the table
+    search.setText("");     
+    
+    }//GEN-LAST:event_refreshMouseClicked
+
+    private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
+         String keyword = search.getText().trim();
+    if(keyword.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Please enter a search keyword!");
+        return;
+    }
+
+    config con = new config();
+    String sql = "SELECT * FROM tbl_users WHERE "
+               + "fullname LIKE '%" + keyword + "%' "
+               + "OR email LIKE '%" + keyword + "%' "
+               + "OR contact LIKE '%" + keyword + "%'";
+
+    con.displayData(sql, userTable);
+    }//GEN-LAST:event_search_btnMouseClicked
 
     /**
      * @param args the command line arguments

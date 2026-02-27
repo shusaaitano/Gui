@@ -170,7 +170,7 @@ public class userForm extends javax.swing.JFrame {
            int check = validateRegister();
                 if(check == 1){
                     config con = new config();
-                        int result = con.insertData("INSERT INTO tbl_users (email, u_fname, password, contact, u_status) "
+                        int result = con.insertData("INSERT INTO tbl_users (email, fullname, password, contact, u_status) "
                                 + "VALUES ('"+email.getText()+"','"+full.getText()+"','"+pass.getText()+"', '"+cont.getText()+"','Pending')");                                                                          
                         if(result == 1){
                             JOptionPane.showMessageDialog(null, "Successfully Save!");
@@ -184,10 +184,14 @@ public class userForm extends javax.swing.JFrame {
            
        }else if(action.equals("Update")){
            config con = new config();
-           con.updateData("UPDATE tbl_users SET email = '"+email.getText()+"', u_fname= '"+full.getText()+"',"
-                   + " password = '"+pass.getText()+"', contact = '"+cont.getText()+"', "
-                           +"' WHERE u_id  = '"+userid.getText()+"'");
-           close();
+             con.updateData(
+        "UPDATE tbl_users SET "
+        + "email = '"+email.getText()+"', "
+        + "fullname = '"+full.getText()+"', "
+        + "password = '"+pass.getText()+"', "
+        + "contact = '"+cont.getText()+"' "
+        + "WHERE a_id = '"+userid.getText()+"'"
+    );
        }else{
            JOptionPane.showMessageDialog(null, "No action selected!");
            close();
